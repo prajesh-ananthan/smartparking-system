@@ -1,4 +1,4 @@
-package com.pav.spring_modulith.allocation;
+package com.pav.smartparkingsystem.entry;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 /**
  * Created by Prajesh V Ananthan
@@ -19,14 +21,12 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-public class Slot {
-
+public class ParkingEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String slotCode;
-    private boolean available;
     private String vehicleNumber;
-
-
+    private LocalDateTime entryTime;
+    private LocalDateTime exitTime;
+    private boolean active;
 }

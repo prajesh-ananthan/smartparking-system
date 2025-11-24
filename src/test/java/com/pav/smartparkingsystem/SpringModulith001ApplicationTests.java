@@ -1,4 +1,4 @@
-package com.pav.spring_modulith;
+package com.pav.smartparkingsystem;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

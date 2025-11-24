@@ -1,4 +1,4 @@
-package com.pav.spring_modulith;
+package com.pav.smartparkingsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

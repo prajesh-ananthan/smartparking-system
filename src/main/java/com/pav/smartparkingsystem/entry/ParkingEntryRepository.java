@@ -1,4 +1,4 @@
-package com.pav.spring_modulith.entry;
+package com.pav.smartparkingsystem.entry;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

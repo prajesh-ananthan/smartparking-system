@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pav</groupId>
-	<artifactId>spring-modulith-001</artifactId>
+	<artifactId>smartparking-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-modulith-001</name>
+	<name>smartparking-system</name>
 	<description>Spring Modulith</description>
 	<url/>
 	<licenses>
