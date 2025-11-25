@@ -16,4 +16,5 @@ public interface SlotRepository extends JpaRepository<Slot, Long> {
     // Find available slot and assign vehicle number to slot
     Optional<Slot> findFirstByAvailableTrue();
 
+    Optional<Slot> findByVehicleNumber(String vehicleNumber);
 }

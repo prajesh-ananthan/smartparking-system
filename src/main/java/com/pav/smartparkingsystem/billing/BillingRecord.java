@@ -1,30 +1,31 @@
-package com.pav.smartparkingsystem.entry;
+package com.pav.smartparkingsystem.billing;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 /**
- * Created by Prajesh V Ananthan
- * Date: 24/11/2025
+ * @author Prajesh V Ananthan
+ * Date: 25/11/2025
  */
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Builder
-public class ParkingEntry {
+public class BillingRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String vehicleNumber;
-    private LocalDateTime entryTime;
-    private LocalDateTime exitTime;
-    private boolean active;
+    private double amount;
+    private LocalDateTime billingTime;
 }

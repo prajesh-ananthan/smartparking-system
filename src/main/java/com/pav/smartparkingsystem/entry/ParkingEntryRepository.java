@@ -1,7 +1,10 @@
 package com.pav.smartparkingsystem.entry;
 
+import com.pav.smartparkingsystem.entry.domain.ParkingEntry;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 /**
  * Created by Prajesh V Ananthan
@@ -11,4 +14,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ParkingEntryRepository extends JpaRepository<ParkingEntry, Long> {
 
+    Optional<ParkingEntry> findVehicleNumberAndActiveTrue(String vehicleNumber);
 }

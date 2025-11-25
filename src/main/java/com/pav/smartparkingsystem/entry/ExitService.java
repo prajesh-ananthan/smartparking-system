@@ -1,7 +1,6 @@
 package com.pav.smartparkingsystem.entry;
 
 import com.pav.smartparkingsystem.entry.domain.ParkingEntry;
-import com.pav.smartparkingsystem.event.VehicleEnteredEvent;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
@@ -15,22 +14,21 @@ import java.time.LocalDateTime;
 
 @Service
 @AllArgsConstructor
-public class EntryService {
+public class ExitService {
 
     private final ParkingEntryRepository parkingEntryRepository;
     private final ApplicationEventPublisher publisher;
 
-    public void vehicleEntry(String vehicleNumber) {
-        ParkingEntry parkingEntry = ParkingEntry.builder()
-                .id(null)
-                .vehicleNumber(vehicleNumber)
-                .entryTime(LocalDateTime.now())
-                .exitTime(null)
-                .active(true)
-                .build();
+    public void vehicleExit(String vehicleNumber) {
+
+        ParkingEntry parkingEntry = parkingEntryRepository.findVehicleNumberAndActiveTrue(vehicleNumber)
+                .orElseThrow(() -> new RuntimeException("No vehicle entry found!"));
+
+        parkingEntry.setExitTime(LocalDateTime.now());
+        parkingEntry.setActive(false);
         parkingEntryRepository.save(parkingEntry);
-        publisher.publishEvent(new VehicleEnteredEvent(vehicleNumber, parkingEntry.getEntryTime()));
-        // publish an event
+        publisher.publishEvent(new VehicleExitEvent(vehicleNumber, parkingEntry.getEntryTime()));
+
     }
 
 
