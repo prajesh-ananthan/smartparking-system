@@ -30,7 +30,6 @@ public class EntryService {
                 .build();
         parkingEntryRepository.save(parkingEntry);
         publisher.publishEvent(new VehicleEnteredEvent(vehicleNumber, parkingEntry.getEntryTime()));
-        // publish an event
     }
 
 

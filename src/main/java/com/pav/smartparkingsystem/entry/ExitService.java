@@ -21,8 +21,8 @@ public class ExitService {
 
     public void vehicleExit(String vehicleNumber) {
 
-        ParkingEntry parkingEntry = parkingEntryRepository.findVehicleNumberAndActiveTrue(vehicleNumber)
-                .orElseThrow(() -> new RuntimeException("No vehicle entry found!"));
+        ParkingEntry parkingEntry = parkingEntryRepository.findByVehicleNumberAndActiveTrue(vehicleNumber)
+                .orElseThrow(() -> new RuntimeException("No vehicle entry " + vehicleNumber + " found!"));
 
         parkingEntry.setExitTime(LocalDateTime.now());
         parkingEntry.setActive(false);
